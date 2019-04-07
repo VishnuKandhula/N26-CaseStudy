@@ -1,0 +1,42 @@
+<aura:component >
+    <aura:attribute name="productName" type="String" />
+    <aura:attribute name="productPrice" type="Decimal" />
+    <aura:attribute name="currencyIsoCode" type="String" />
+    <aura:attribute name="ProductInfoHeader" type="String" />
+    <aura:attribute name="ProductHomeCountry" type="String" />
+    <aura:attribute name="percent" type="Boolean" />
+    <aura:attribute name="ProductPriceFree" type="String" default="Free"/>
+    
+    <table class="slds-table slds-table_bordered slds-table_col-bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="{!v.ProductInfoHeader}">{!v.ProductInfoHeader}</div>
+                </th>
+                <th class="" scope="col">
+                    <div class="slds-truncate" title="{!v.ProductHomeCountry}">{!v.ProductHomeCountry}</div>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="slds-hint-parent">
+                <th data-label="{!v.productName}" scope="col">
+                    <div class="slds-truncate" title="productName">{!v.productName}</div>
+                </th>
+                <td data-label="{!v.productPrice}" scope="col">
+                    <aura:if isTrue="{! v.percent }" >
+                        <aura:if isTrue="{!v.percent != null}">
+                            <lightning:formattedNumber value="{! v.productPrice/100}" style="percent" maximumFractionDigits="2" />
+                            <aura:set attribute="else">
+                                <lightning:formattedText value="{!v.ProductPriceFree }"/>
+                            </aura:set>
+                        </aura:if>
+                        <aura:set attribute="else">
+                            <lightning:formattedNumber value="{!v.productPrice }" style="currency" currencyCode="EUR" />
+                        </aura:set>
+                    </aura:if>
+                </td>
+            </tr>
+        </tbody>
+    </table>   
+</aura:component>
