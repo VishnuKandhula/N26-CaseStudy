@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>EmailSubject</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EmailSubject</shortDescription>
+        <value>N26 Survey Link</value>
+    </labels>
+    <labels>
+        <fullName>EnglishEmailTemplateLabel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>EnglishEmailTemplateLabel</shortDescription>
+        <value>, please fill out our survey: http://n26.com/survey/</value>
+    </labels>
+    <labels>
+        <fullName>GermanEmailTemplateLabel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>GermanEmailTemplateLabel</shortDescription>
+        <value>, bitte fülle unsere Umfrage aus: http://n26.com/survey/</value>
+    </labels>
+    <labels>
+        <fullName>LimitsClassApiEndPoint</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>LimitsClassApiEndPoint</shortDescription>
+        <value>https://vis1-dev-ed.my.salesforce.com/services/data/v44.0/limits</value>
+    </labels>
+</CustomLabels>
