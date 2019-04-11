@@ -1,0 +1,38 @@
+<aura:component implements="flexipage:availableForRecordHome,force:hasRecordId" access="global" controller="getProductInfoController">
+    
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }" />   
+    <aura:attribute name="recordId" type="string"/>
+    <aura:attribute name="productName" type="String" />
+    <aura:attribute name="contactHomeCountry" type="String" />
+    <aura:attribute name="objCostPerMonth" type="object" />
+    <aura:attribute name="objAtmFee" type="object" />
+    <aura:attribute name="objCardReplaceCost" type="object" />
+    <aura:attribute name="mapPricebookData" type="Map" />
+    <aura:attribute name="percent" type="boolean" default="false" />
+    
+    <lightning:card class="slds-p-around_xxx-small" title="Product Information">
+        <!--  ShowProductTableInfo component to show Matching Product and Price Info with Contact-->  
+        <c:ShowProductTableInfo
+                                ProductInfoHeader = "Cost per Calendar Month"
+                                objPricedata = "{!v.objCostPerMonth}"
+                                productName = "{!v.productName}"
+                                percent = "false"
+                                
+                                />
+        <!--  ShowProductTableInfo component to show ATM Fee Percent for Matching Product-->  
+        <c:ShowProductTableInfo
+                                ProductInfoHeader = "ATM Fee in other currencies"
+                                objPricedata = "{!v.objAtmFee}"
+                                productName = "{!v.productName}"
+                                percent = "true"
+                                />
+        <!--  ShowProductTableInfo component to show Card Replacement Fee for Matching Product--> 
+        <c:ShowProductTableInfo
+                                ProductInfoHeader = "Card Replacement Cost"
+                                objPricedata = "{!v.objCardReplaceCost}"
+                                productName = "{!v.productName}"
+                                percent = "false"
+                                />
+    </lightning:card>
+    
+</aura:component>

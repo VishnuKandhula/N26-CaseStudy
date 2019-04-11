@@ -1,0 +1,82 @@
+<aura:component >
+    
+    <aura:attribute name="productName" type="String" />
+    <aura:attribute name="ProductInfoHeader" type="String" />
+    <aura:attribute name="percent" type="Boolean" />
+    <aura:attribute name="mapPricebookData" type="Map" />
+    <aura:attribute name="objPricedata" type="object" />
+    <!-- Display price info based on Matching Country info with CurrencyIsoCode on PriceBookEntry-->
+    <!-- if PriceBook Entry has EURO for a product then based on Country's CurrencyISOCode Price will be shown in their Related column-->
+    <table class="slds-table slds-table_bordered slds-table_col-bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th class="slds-size--5-of-12" scope="col" style="">
+                    <div class="slds-truncate" title="{!v.ProductInfoHeader}">{!v.ProductInfoHeader}</div>
+                </th>
+                <th class="slds-size--1-of-12" scope="col">
+                    <div class="slds-truncate" title="DE">DE</div>
+                </th>
+                <th class="slds-size--1-of-12" scope="col">
+                    <div class="slds-truncate" title="FR">FR</div>
+                </th>
+                <th class="slds-size--1-of-12" scope="col">
+                    <div class="slds-truncate" title="ES">ES</div>
+                </th>
+                <th class="slds-size--1-of-12" scope="col">
+                    <div class="slds-truncate" title="IT">IT</div>
+                </th>
+                <th class="slds-size--1-of-12" scope="col">
+                    <div class="slds-truncate" title="UK">UK</div>
+                </th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            <tr class="slds-hint-parent">
+                <th scope="col" class="">
+                    <div class="slds-truncate" title="productName">{!v.productName}</div>
+                </th>
+                <td class="" scope="col">
+                    <aura:if isTrue="{! !v.percent}">                       
+                        <lightning:formattedNumber value="{!v.objPricedata.strDE}" style="currency" currencyCode="{!v.objPricedata.strCurrencyCode}"/>
+                        <aura:set attribute="else">
+                            <lightning:formattedNumber value="{!v.objPricedata.strDE/100}" style="percent" maximumFractionDigits="1"/>
+                        </aura:set>    
+                    </aura:if>
+                </td>
+                <td class="" scope="col">                 
+                    <aura:if isTrue="{! !v.percent}">
+                        <lightning:formattedNumber value="{!v.objPricedata.strFR}" style="currency" currencyCode="{!v.objPricedata.strCurrencyCode}"/>
+                        <aura:set attribute="else">
+                            <lightning:formattedNumber value="{!v.objPricedata.strFR/100}" style="percent" maximumFractionDigits="1"/>
+                        </aura:set>    
+                    </aura:if>
+                </td>
+                <td class="" scope="col">
+                    <aura:if isTrue="{! !v.percent}">
+                        <lightning:formattedNumber value="{!v.objPricedata.strES}" style="currency" currencyCode="{!v.objPricedata.strCurrencyCode}"/>
+                        <aura:set attribute="else">
+                            <lightning:formattedNumber value="{!v.objPricedata.strES/100}" style="percent" maximumFractionDigits="1"/>
+                        </aura:set>    
+                    </aura:if>
+                </td>
+                <td class="" scope="col">
+                    <aura:if isTrue="{! !v.percent}">
+                        <lightning:formattedNumber value="{!v.objPricedata.strIT}" style="currency" currencyCode="{!v.objPricedata.strCurrencyCode}"/>
+                        <aura:set attribute="else">
+                            <lightning:formattedNumber value="{!v.objPricedata.strIT/100}" style="percent" maximumFractionDigits="1"/>
+                        </aura:set>    
+                    </aura:if>
+                </td>
+                <td class="" scope="col">
+                    <aura:if isTrue="{! !v.percent}">
+                        <lightning:formattedNumber value="{!v.objPricedata.strUK}" style="currency" currencyCode="{!v.objPricedata.strUKCurrencyCode}"/>
+                        <aura:set attribute="else">
+                            <lightning:formattedNumber value="{!v.objPricedata.strUK/100}" style="percent" maximumFractionDigits="1"/>
+                        </aura:set>    
+                    </aura:if>
+                </td>
+            </tr>
+        </tbody>
+    </table>   
+</aura:component>
