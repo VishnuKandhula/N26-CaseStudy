@@ -10,7 +10,7 @@ public without sharing class getProductInfoController {
         if (CaseRecord.Contact == null || String.isBlank(CaseRecord.Contact.Product__c)) {
             return null;
         } else {
-            List<PricebookEntry> PriceDetails = [SELECT Id,Pricebook2.CurrencyIsoCode,ATM_Fee__c,Card_Replacement_Cost__c,Name,UnitPrice, CurrencyIsoCode,Product2Id,Product2.Name,Product2.Percent__c,Product2.ATMFee__c,Product2.Card_Replacement_Fee__c
+            List<PricebookEntry> PriceDetails = [SELECT Id,Pricebook2.CurrencyIsoCode,ATM_Fee__c,Card_Replacement_Cost__c,Name,UnitPrice, CurrencyIsoCode,Product2Id,Product2.Name
                                                  FROM PricebookEntry 
                                                  WHERE Product2Id = :CaseRecord.Contact.Product__c ORDER BY CurrencyIsoCode ASC]; 
                        
