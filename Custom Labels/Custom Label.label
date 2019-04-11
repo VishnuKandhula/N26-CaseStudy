@@ -19,7 +19,7 @@
         <language>en_US</language>
         <protected>true</protected>
         <shortDescription>GermanEmailTemplateLabel</shortDescription>
-        <value>, bitte fülle unsere Umfrage aus: http://n26.com/survey/</value>
+        <value>, bitte fÃ¼lle unsere Umfrage aus: http://n26.com/survey/</value>
     </labels>
     <labels>
         <fullName>LimitsClassApiEndPoint</fullName>
